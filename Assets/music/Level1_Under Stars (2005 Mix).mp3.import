@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q5jmf3tcljny"
+path="res://.godot/imported/Level1_Under Stars (2005 Mix).mp3-a9f6e654be11d2c8d823efb592181458.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/Level1_Under Stars (2005 Mix).mp3"
+dest_files=["res://.godot/imported/Level1_Under Stars (2005 Mix).mp3-a9f6e654be11d2c8d823efb592181458.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

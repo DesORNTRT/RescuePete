@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ke2ia4rp5y0c"]
+
+[ext_resource type="Script" path="res://Scenes/objects/spawn_barrier.gd" id="1_i1yos"]
+[ext_resource type="Texture2D" uid="uid://82tjd0yxdja" path="res://Scenes/objects/Bridge.png" id="2_4kvjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhx11"]
+size = Vector2(64, 16)
+
+[node name="SpawnBarrierVer" type="StaticBody2D"]
+collision_mask = 10
+script = ExtResource("1_i1yos")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 0)
+rotation = 1.5708
+scale = Vector2(0.27, 1)
+texture = ExtResource("2_4kvjo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_rhx11")

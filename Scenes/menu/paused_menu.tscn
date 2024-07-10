@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://de2qromg1vlxv"]
+
+[ext_resource type="Theme" uid="uid://c0re1bitbft18" path="res://Assets/sci-fi-theme-4/sci-fi-theme.tres" id="1_7j4f3"]
+[ext_resource type="Script" path="res://Scenes/menu/paused_menu.gd" id="1_36gtg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e3y5t"]
+font_size = 40
+
+[sub_resource type="Theme" id="Theme_7obhy"]
+
+[node name="PausedMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36gtg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00097, 1.00272)
+theme = ExtResource("1_7j4f3")
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(320, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(275, 50)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 5000
+text = "--Paused--"
+label_settings = SubResource("LabelSettings_e3y5t")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ResumeB" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Resume"
+icon_alignment = 1
+
+[node name="QuitB" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_7obhy")
+theme_override_font_sizes/font_size = 35
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeB" to="." method="_on_resume_b_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitB" to="." method="_on_quit_b_pressed"]

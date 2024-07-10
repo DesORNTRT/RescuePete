@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqvfcu64ulrdj"]
+
+[ext_resource type="Texture2D" uid="uid://ciaytqagn64hm" path="res://Assets/portal.png" id="1_nv1qd"]
+[ext_resource type="Script" path="res://Scenes/objects/portal.gd" id="1_xswsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfy3"]
+size = Vector2(28, 38)
+
+[node name="Portal" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_xswsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nv1qd")
+centered = false
+offset = Vector2(5, 0)
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(29, 32)
+shape = SubResource("RectangleShape2D_xwfy3")
+
+[node name="CollisionPolygon2D_top" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, 11, 8, 4, 13, 1, 45, 1, 50, 4, 50, 11, 47, 12, 11, 12)
+
+[node name="CollisionPolygon2D_bottom" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(5, 60, 5, 58, 8, 55, 15, 51, 43, 51, 50, 55, 53, 58, 53, 60)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://vyrfqrgfihuh"]
+
+[ext_resource type="Texture2D" uid="uid://dtwoitnyfjqtr" path="res://Scenes/levels/SpaceStation_Objects.png" id="1_d5ju4"]
+[ext_resource type="Script" path="res://Scenes/objects/console_interactable.gd" id="2_lls0e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfcud"]
+texture = ExtResource("1_d5ju4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+15:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+10:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+15:2/0 = 0
+19:2/0 = 0
+21:2/0 = 0
+0:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3h3xv"]
+sources/0 = SubResource("TileSetAtlasSource_mfcud")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lw8ho"]
+radius = 18.0278
+
+[node name="Console" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_3h3xv")
+format = 2
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(65535, 327680, 5, 0, 393216, 5, -65536, 393216, 4, -1, 327680, 4)
+
+[node name="ConsoleInteractableArea2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_lls0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConsoleInteractableArea2D"]
+shape = SubResource("CircleShape2D_lw8ho")

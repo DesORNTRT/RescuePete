@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bdm45b6uw5sic"
+path="res://.godot/imported/Pixel Square 10.ttf-f06084c8e862bcbb89d4789d66d8e689.fontdata"
+
+[deps]
+
+source_file="res://Assets/sci-fi-theme-4/Pixel Square 10.ttf"
+dest_files=["res://.godot/imported/Pixel Square 10.ttf-f06084c8e862bcbb89d4789d66d8e689.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

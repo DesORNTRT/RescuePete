@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dum586gkhv0rs"]
+
+[ext_resource type="Script" path="res://Scenes/player/Pete.gd" id="1_c78uk"]
+[ext_resource type="Texture2D" uid="uid://dp63lxi81bxyu" path="res://Scenes/player/Biker_idle.png" id="2_wx8v3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nocbh"]
+atlas = ExtResource("2_wx8v3")
+region = Rect2(0, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne7po"]
+atlas = ExtResource("2_wx8v3")
+region = Rect2(48, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40gyk"]
+atlas = ExtResource("2_wx8v3")
+region = Rect2(96, 0, 24, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppj86"]
+atlas = ExtResource("2_wx8v3")
+region = Rect2(144, 0, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hfcuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nocbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne7po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40gyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppj86")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oscr0"]
+radius = 7.0
+height = 36.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71dnc"]
+radius = 22.0227
+
+[node name="Pete" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_c78uk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_hfcuk")
+animation = &"idle"
+frame = 1
+frame_progress = 0.318454
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -18)
+shape = SubResource("CapsuleShape2D_oscr0")
+
+[node name="InteractionArea2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D"]
+position = Vector2(0, -19)
+shape = SubResource("CircleShape2D_71dnc")
+
+[connection signal="body_entered" from="InteractionArea2D" to="." method="_on_interaction_area_2d_body_entered"]
